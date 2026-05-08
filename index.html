@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pandora Studio Método Presença Elite</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hidden}
+
+/* SLIDE BASE */
+.slide{
+  width:100%;min-height:100vh;position:relative;
+  display:flex;align-items:center;justify-content:center;
+  padding:80px 100px;overflow:hidden;
+}
+
+/* GLOW CORNERS */
+.glow-tl::before{content:'';position:absolute;top:-200px;left:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(220,90,10,0.35) 0%,transparent 65%);pointer-events:none;z-index:0}
+.glow-tr::after{content:'';position:absolute;top:-150px;right:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(200,70,5,0.28) 0%,transparent 65%);pointer-events:none;z-index:0}
+.glow-br::after{content:'';position:absolute;bottom:-150px;right:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(200,70,5,0.3) 0%,transparent 65%);pointer-events:none;z-index:0}
+.glow-bl::before{content:'';position:absolute;bottom:-200px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(180,60,5,0.25) 0%,transparent 65%);pointer-events:none;z-index:0}
+.glow-center::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(150,50,5,0.18) 0%,transparent 70%);pointer-events:none;z-index:0}
+
+/* BIG GHOST NUMBER */
+.ghost-num{
+  position:absolute;font-size:420px;font-weight:900;
+  color:rgba(255,255,255,0.04);line-height:1;
+  right:-20px;top:50%;transform:translateY(-50%);
+  pointer-events:none;user-select:none;z-index:0;letter-spacing:-20px;
+}
+
+/* PILL / TAG */
+.pill{
+  display:inline-block;
+  background:linear-gradient(135deg,#5a2500,#3a1500);
+  border:1px solid rgba(220,100,20,0.4);
+  color:#e06020;font-size:13px;font-weight:600;
+  letter-spacing:0.06em;padding:8px 20px;border-radius:999px;
+  margin-bottom:20px;
+}
+
+/* CONTENT LAYER */
+.content{position:relative;z-index:1;width:100%}
+
+/* DIVIDER */
+.divider{height:1px;background:rgba(255,255,255,0.08);margin:20px 0}
+
+/* ===== SLIDE 1 CAPA ===== */
+#s1{background:#0a0a0a;flex-direction:column;text-align:center;min-height:100vh}
+#s1 .arc{
+  position:absolute;top:-320px;left:50%;transform:translateX(-50%);
+  width:700px;height:700px;border-radius:50%;
+  border:2px solid transparent;
+  background:linear-gradient(#0a0a0a,#0a0a0a) padding-box,
+    radial-gradient(circle at 50% 50%,#ff6820,#c43000 60%,transparent 100%) border-box;
+  box-shadow:0 0 120px 30px rgba(200,60,0,0.5),0 0 60px 10px rgba(200,60,0,0.3);
+  pointer-events:none;
+}
+/* inner rings */
+#s1 .arc::before{
+  content:'';position:absolute;inset:20px;border-radius:50%;
+  border:1.5px solid rgba(255,100,20,0.5);
+  box-shadow:0 0 40px rgba(200,60,0,0.3);
+}
+#s1 .arc::after{
+  content:'';position:absolute;inset:40px;border-radius:50%;
+  border:1px solid rgba(255,100,20,0.25);
+}
+.capa-year{font-size:14px;font-weight:700;letter-spacing:0.1em;color:#e06020;background:rgba(80,30,5,0.7);border:1px solid rgba(220,100,20,0.4);padding:7px 18px;border-radius:999px;display:inline-block;margin-bottom:28px}
+.capa-title{font-size:80px;font-weight:900;line-height:1;color:#fff;margin-bottom:20px;letter-spacing:-2px}
+.capa-sub{font-size:22px;font-weight:500;color:#aaa;margin-bottom:40px}
+.capa-sub span{color:#e06020;font-weight:700}
+.logo-badges{display:flex;gap:12px;justify-content:center;align-items:center}
+.logo-badge{width:52px;height:52px;border-radius:50%;border:2px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#fff}
+.logo-badge.orange{background:linear-gradient(135deg,#e05010,#b03000);border-color:rgba(220,100,20,0.6)}
+
+/* ===== SLIDE 2 MECANISMO ===== */
+#s2{background:#0c0c0c}
+.mec-block{max-width:520px}
+.mec-block h2{font-size:54px;font-weight:900;line-height:1.05;margin-bottom:24px}
+.mec-block h2 span{color:#e06020}
+.mec-block p{font-size:17px;color:rgba(255,255,255,0.65);line-height:1.75}
+.mec-block p strong{color:#fff;font-weight:600}
+.mec-aside{flex:1;display:flex;align-items:center;justify-content:flex-end}
+.mec-card{
+  background:linear-gradient(145deg,rgba(80,30,5,0.4),rgba(20,10,5,0.8));
+  border:1px solid rgba(220,90,10,0.3);
+  border-radius:20px;padding:36px;max-width:340px;width:100%;
+  box-shadow:0 0 60px rgba(180,60,0,0.12);
+}
+.mec-card-label{font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#e06020;margin-bottom:12px}
+.mec-card-text{font-size:15px;color:rgba(255,255,255,0.7);line-height:1.7;font-style:italic}
+.mec-card-text em{color:#fff;font-style:normal;font-weight:600}
+
+/* ===== SLIDE 3 ENTREGÁVEIS ===== */
+#s3{background:#0a0a0a;flex-direction:column;align-items:flex-start}
+.section-head{margin-bottom:48px}
+.section-head h2{font-size:52px;font-weight:900;line-height:1.05}
+.section-head h2 span{color:#e06020}
+.section-head p{font-size:16px;color:rgba(255,255,255,0.5);margin-top:10px}
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;width:100%}
+.ecard{
+  background:linear-gradient(145deg,rgba(30,15,5,0.9),rgba(15,8,3,0.95));
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:16px;padding:28px;
+  transition:border-color .2s;position:relative;overflow:hidden;
+}
+.ecard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(220,90,10,0.5),transparent)}
+.ecard-num{font-size:11px;font-weight:700;color:#e06020;letter-spacing:0.1em;margin-bottom:10px}
+.ecard-title{font-size:17px;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.3}
+.ecard-body{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.65}
+.ecard.wide{grid-column:span 3}
+.ecard-icon{width:36px;height:36px;background:linear-gradient(135deg,rgba(220,90,10,0.3),rgba(140,50,5,0.2));border:1px solid rgba(220,90,10,0.3);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:16px}
+
+/* ===== SLIDE 4 BÔNUS ===== */
+#s4{background:#0c0c0c;flex-direction:column;align-items:flex-start}
+.bonus-list{display:flex;flex-direction:column;gap:12px;width:100%;margin-top:40px}
+.bonus-row{
+  display:flex;gap:20px;align-items:flex-start;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.07);
+  border-left:3px solid #e06020;
+  border-radius:0 12px 12px 0;
+  padding:20px 24px;
+}
+.bonus-badge{
+  font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  color:#e06020;background:rgba(220,90,10,0.15);
+  padding:5px 12px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px;
+  border:1px solid rgba(220,90,10,0.3);
+}
+.bonus-name{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}
+.bonus-desc{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6}
+
+/* ===== SLIDE 5 CARDS DESTAQUE ===== */
+#s5{background:#0a0a0a;flex-direction:column}
+#s5 h2{font-size:42px;font-weight:900;text-align:center;margin-bottom:48px}
+#s5 h2 span{color:#e06020}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;width:100%}
+.fcard{
+  border-radius:20px;overflow:hidden;position:relative;
+  aspect-ratio:3/4;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:28px;
+}
+.fcard-bg{
+  position:absolute;inset:0;z-index:0;
+}
+.fcard:nth-child(1) .fcard-bg{background:linear-gradient(160deg,#2a1000 0%,#0d0500 50%,#0a0a0a 100%)}
+.fcard:nth-child(2) .fcard-bg{background:linear-gradient(160deg,#c85010 0%,#7a2800 40%,#2a0d00 100%)}
+.fcard:nth-child(3) .fcard-bg{background:linear-gradient(160deg,#1e0e00 0%,#0d0500 60%,#0a0a0a 100%)}
+.fcard-orb{position:absolute;width:220px;height:220px;border-radius:50%;top:20px;right:-40px;z-index:0}
+.fcard:nth-child(1) .fcard-orb{background:radial-gradient(circle,rgba(200,70,10,0.5),transparent 70%)}
+.fcard:nth-child(2) .fcard-orb{background:radial-gradient(circle,rgba(255,140,40,0.6),transparent 70%)}
+.fcard:nth-child(3) .fcard-orb{background:radial-gradient(circle,rgba(200,70,10,0.4),transparent 70%)}
+.fcard-content{position:relative;z-index:1}
+.fcard-icon{width:40px;height:40px;background:rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:60px}
+.fcard-title{font-size:22px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:12px;text-transform:uppercase}
+.fcard-body{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.6}
+.fcard:nth-child(2) .fcard-title{color:#fff}
+.fcard:nth-child(2) .fcard-body{color:rgba(0,0,0,0.75)}
+.fcard:nth-child(2) .fcard-icon{background:rgba(0,0,0,0.3);border-color:rgba(0,0,0,0.2)}
+
+/* ===== SLIDE 6 FECHAMENTO ===== */
+#s6{background:#080808;flex-direction:column;text-align:center;justify-content:center}
+.closing-title{font-size:110px;font-weight:900;line-height:0.9;letter-spacing:-4px;margin-bottom:30px}
+.closing-title .line1{color:#fff}
+.closing-title .line2{
+  background:linear-gradient(90deg,#ff7020,#e03000);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.closing-sub{font-size:18px;color:rgba(255,255,255,0.55);max-width:580px;margin:0 auto 40px;line-height:1.7}
+.closing-sub strong{color:#fff}
+.cta-btn{
+  display:inline-block;
+  background:linear-gradient(135deg,#5a2200,#2e1000);
+  border:1px solid rgba(220,100,20,0.5);
+  color:#e06020;font-size:15px;font-weight:700;
+  letter-spacing:0.05em;padding:16px 40px;border-radius:999px;
+  text-decoration:none;
+}
+
+/* TWO-COL LAYOUT */
+.two-col{display:flex;gap:80px;align-items:center;width:100%}
+
+/* ===== SLIDE IMPACTO ===== */
+.impact-top{display:flex;align-items:flex-start;gap:80px;margin-bottom:60px}
+.impact-title-block{flex-shrink:0}
+.impact-title-block h2{font-size:52px;font-weight:900;line-height:1.1;text-transform:uppercase;letter-spacing:-1px}
+.impact-title-block h2 span{color:#e06020}
+.impact-desc{max-width:400px;padding-top:4px}
+.impact-desc p{font-size:17px;color:rgba(255,255,255,0.58);line-height:1.75}
+.impact-stats{display:flex;flex-direction:column;gap:8px}
+.istat{display:flex;align-items:center;gap:22px}
+.istat-icon{
+  width:56px;height:56px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(145deg,#ff6b1a,#c43000);
+  box-shadow:0 0 28px rgba(220,80,0,0.5);
+  display:flex;align-items:center;justify-content:center;
+}
+.istat-icon svg{width:24px;height:24px;fill:#fff}
+.istat-num{font-size:160px;font-weight:900;line-height:1;letter-spacing:-8px;color:#fff;flex-shrink:0}
+.istat-label{display:flex;flex-direction:column;gap:0}
+.istat-label span{font-size:14px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:rgba(255,255,255,0.5);line-height:1.25;display:block}
+
+/* ===== SLIDE DESAFIO cards inclinados ===== */
+.desafio-title{font-size:80px;font-weight:900;line-height:0.95;text-transform:uppercase;letter-spacing:-2px;margin-bottom:6px}
+.desafio-title span{color:#e05500}
+.desafio-sub{font-size:28px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#fff;margin-bottom:28px}
+.desafio-body{font-size:16px;color:rgba(255,255,255,0.6);line-height:1.7;max-width:580px;margin-bottom:48px}
+.desafio-body strong{color:#fff;font-weight:700}
+.desafio-bottom{display:flex;align-items:flex-end;gap:60px;width:100%}
+.dcard-stack{display:flex;gap:-10px;align-items:flex-end;position:relative}
+.dcard{
+  width:175px;min-height:200px;
+  background:linear-gradient(160deg,rgba(90,35,5,0.85),rgba(25,10,2,0.95));
+  border:1px solid rgba(220,90,10,0.35);
+  border-radius:18px;
+  padding:20px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  position:relative;
+  box-shadow:0 8px 40px rgba(180,60,0,0.25);
+}
+.dcard::before{content:'';position:absolute;inset:0;border-radius:18px;background:radial-gradient(ellipse at 50% 110%,rgba(220,90,10,0.3) 0%,transparent 60%);pointer-events:none}
+.dcard:nth-child(1){transform:rotate(-4deg) translateY(8px);z-index:1}
+.dcard:nth-child(2){transform:rotate(-1.5deg) translateY(0px);z-index:2;margin-left:-18px}
+.dcard:nth-child(3){transform:rotate(2deg) translateY(4px);z-index:3;margin-left:-18px}
+.dcard-icon{
+  width:34px;height:34px;
+  background:linear-gradient(135deg,rgba(220,90,10,0.4),rgba(140,50,5,0.3));
+  border:1px solid rgba(220,90,10,0.5);
+  border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;
+  box-shadow:0 0 14px rgba(200,70,0,0.4);
+}
+.dcard-name{font-size:15px;font-weight:700;color:#fff;line-height:1.3;margin-top:40px}
+.resultado-block{flex:1}
+.resultado-icon{width:40px;height:40px;background:rgba(30,15,5,0.9);border:1px solid rgba(220,90,10,0.4);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:14px}
+.resultado-title{font-size:28px;font-weight:900;text-transform:uppercase;letter-spacing:-0.5px;margin-bottom:10px}
+.resultado-title span{color:#fff}
+.resultado-text{font-size:17px;color:rgba(255,255,255,0.55);line-height:1.6}
+
+/* ===== SLIDE VALOR PERCEBIDO ===== */
+.valor-slide{align-items:stretch;gap:0;padding:80px 100px}
+.valor-left{flex:0 0 420px;display:flex;flex-direction:column;justify-content:space-between}
+.valor-heading{font-size:22px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:rgba(255,255,255,0.55);line-height:1.3;margin-bottom:0}
+.valor-big{font-size:72px;font-weight:900;text-transform:uppercase;line-height:0.95;letter-spacing:-2px;margin:16px 0;white-space:nowrap}
+.valor-big span{color:#e05500}
+.valor-desc{font-size:15px;color:rgba(255,255,255,0.5);line-height:1.7;max-width:360px}
+.valor-notes{margin-top:auto;padding-top:32px}
+.valor-notes p{font-size:11px;color:rgba(255,255,255,0.28);line-height:1.6}
+.valor-right{flex:1;display:flex;align-items:flex-end;justify-content:center;gap:32px;padding-left:60px;padding-bottom:0;position:relative;z-index:1}
+.bar-group{display:flex;flex-direction:column;align-items:center;gap:12px}
+.bar-value{font-size:22px;font-weight:800;color:#fff;letter-spacing:-0.5px}
+.bar-wrap{width:130px;border-radius:12px 12px 0 0;overflow:hidden;position:relative}
+.bar-inner{width:100%;border-radius:12px 12px 0 0}
+.bar-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.45);text-align:center;letter-spacing:0.04em;line-height:1.4;margin-top:10px;max-width:130px}
+.bar-line{width:100%;height:1px;background:rgba(255,255,255,0.12);margin-top:0}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .slide{padding:60px 40px}
+  .cards-grid{grid-template-columns:1fr 1fr}
+  .ecard.wide{grid-column:span 2}
+  .feat-grid{grid-template-columns:1fr}
+  .two-col{flex-direction:column;gap:40px}
+  .capa-title{font-size:52px}
+  .ghost-num{font-size:200px}
+}
+@media print{
+  body{background:#0a0a0a}
+  .slide{min-height:auto;page-break-after:always}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== SLIDE 1 CAPA ===== -->
+<div class="slide glow-tl" id="s1">
+  <div class="arc"></div>
+  <div class="content" style="display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:1;padding-top:60px">
+    <div class="capa-year">2025 · 2026</div>
+    <h1 class="capa-title">Método<br>Presença Elite</h1>
+    <p class="capa-sub">Pandora Studio & <span>Você</span></p>
+    <div class="logo-badges">
+      <div class="logo-badge">P</div>
+      <div class="logo-badge orange">★</div>
+    </div>
+    <p style="font-size:13px;color:rgba(255,255,255,0.3);margin-top:16px;letter-spacing:0.08em;text-transform:uppercase">Proposta de Serviço</p>
+  </div>
+</div>
+
+<!-- ===== SLIDE 2 O MECANISMO ===== -->
+<div class="slide glow-tr" id="s2">
+  <div class="ghost-num">02</div>
+  <div class="content two-col">
+    <div class="mec-block">
+      <div class="pill">O mecanismo único</div>
+      <h2>Contraste<br><span>Estratégico</span><br>de Valor</h2>
+      <p>Analisamos o padrão da sua concorrência, identificamos o seu ângulo de autoridade exclusivo e construímos uma comunicação visual e persuasiva que faz o potencial paciente ou cliente olhar para o seu perfil e pensar <strong>"é esse que eu quero"</strong> antes mesmo de perguntar o preço.</p>
+    </div>
+    <div class="mec-aside">
+      <div class="mec-card">
+        <p class="mec-card-label">A grande promessa</p>
+        <p class="mec-card-text">Transformamos seu perfil em uma máquina de autoridade que <em>atrai clientes qualificados, dobra seus agendamentos</em> e posiciona você como a referência do seu nicho.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 2.5 IMPACTO / NÚMEROS ===== -->
+<div class="slide glow-tr" id="s-impacto" style="flex-direction:column;justify-content:space-between;align-items:flex-start">
+  <div class="ghost-num" style="font-size:500px;letter-spacing:-30px;right:-40px">07</div>
+
+  <div class="content impact-top">
+    <div class="impact-title-block">
+      <h2>O impacto<br>do <span style="color:#e06020">método</span></h2>
+    </div>
+    <div class="impact-desc">
+      <p>Uma estratégia completa entregue todo mês com conteúdo, gestão, relatório e posicionamento. Você só precisa aparecer. A máquina trabalha por você.</p>
+    </div>
+  </div>
+
+  <div class="content impact-stats">
+
+    <div class="istat">
+      <div class="istat-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+      </div>
+      <div class="istat-num">+12</div>
+      <div class="istat-label">
+        <span>Posts estratégicos por mês</span>
+      </div>
+    </div>
+
+    <div class="istat">
+      <div class="istat-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+      </div>
+      <div class="istat-num">+6</div>
+      <div class="istat-label">
+        <span>reels com roteiro</span>
+        <span>e edição profissional</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== SLIDE DESAFIO O PROBLEMA QUE O MÉTODO RESOLVE ===== -->
+<div class="slide glow-tl" id="s-desafio" style="flex-direction:column;justify-content:flex-start;align-items:flex-start">
+  <div class="ghost-num" style="right:-30px;top:40%;font-size:480px">%</div>
+  <div class="content">
+
+    <h2 class="desafio-title"><span>O Problema</span></h2>
+    <p class="desafio-sub">no digital</p>
+
+    <div class="desafio-body">
+      <p>A maioria dos profissionais investe em presença digital, mas sem estratégia o conteúdo não converte. <strong>A exigência do mercado é de autoridade real não só de posts bonitos.</strong></p>
+      <br>
+      <p>Para gerar agendamentos consistentes com qualidade, você precisa de uma estrutura que a maioria dos social medias avulsos não consegue entregar:</p>
+    </div>
+
+    <div class="desafio-bottom">
+
+      <div class="dcard-stack">
+        <div class="dcard">
+          <div class="dcard-icon">🎯</div>
+          <p class="dcard-name">Estratégia de<br>Posicionamento</p>
+        </div>
+        <div class="dcard">
+          <div class="dcard-icon">✍️</div>
+          <p class="dcard-name">Copy e<br>Neurodesign</p>
+        </div>
+        <div class="dcard">
+          <div class="dcard-icon">📊</div>
+          <p class="dcard-name">Gestão e<br>Relatório Real</p>
+        </div>
+      </div>
+
+      <div class="resultado-block">
+        <div class="resultado-icon">⚡</div>
+        <p class="resultado-title">RESUL<span>TADO:</span></p>
+        <p class="resultado-text">Sem método, o perfil vira decoração e você continua perdendo agendamentos para quem tem autoridade digital.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 3 ENTREGÁVEIS ===== -->
+<div class="slide glow-bl" id="s3">
+  <div class="ghost-num">03</div>
+  <div class="content">
+    <div class="section-head">
+      <h2>O que você <span>recebe</span></h2>
+      <p>Entregáveis principais do serviço cada peça tem uma função dentro do seu funil</p>
+    </div>
+    <div class="cards-grid">
+
+      <div class="ecard">
+        <div class="ecard-icon">🗺</div>
+        <p class="ecard-num">01</p>
+        <p class="ecard-title">Mapa de Autoridade</p>
+        <p class="ecard-body">Diagnóstico estratégico de posicionamento. Análise da sua área, concorrentes e comportamento do cliente ideal para encontrar o ângulo que transforma sua expertise em vantagem competitiva irresistível.</p>
+      </div>
+
+      <div class="ecard">
+        <div class="ecard-icon">💎</div>
+        <p class="ecard-num">02</p>
+        <p class="ecard-title">Vitrine de Elite</p>
+        <p class="ecard-body">Identidade visual e branding profissional completo. Autoridade, confiança e exclusividade antes mesmo de a pessoa ler uma palavra do seu conteúdo.</p>
+      </div>
+
+      <div class="ecard">
+        <div class="ecard-icon">⚡</div>
+        <p class="ecard-num">03</p>
+        <p class="ecard-title">Máquina de Conteúdo</p>
+        <p class="ecard-body">8 a 12 posts com neurodesign e copywriting + 6 Reels com roteiro e edição profissional por mês. Cada peça com função no funil: atrair, nutrir, qualificar e converter.</p>
+      </div>
+
+      <div class="ecard">
+        <div class="ecard-icon">✍️</div>
+        <p class="ecard-num">04</p>
+        <p class="ecard-title">Vendedor Silencioso</p>
+        <p class="ecard-body">Copywriting e legendas de alta conversão. Cada legenda quebra objeções, comunica valor e conduz à ação sem soar agressivo ou genérico.</p>
+      </div>
+
+      <div class="ecard">
+        <div class="ecard-icon">🎬</div>
+        <p class="ecard-num">05</p>
+        <p class="ecard-title">Guia do Bastidor</p>
+        <p class="ecard-body">Roteiros e ideias mensais para Stories: estratégia para engajar a audiência, humanizar a marca e criar conexão de confiança que transforma seguidores em clientes.</p>
+      </div>
+
+      <div class="ecard">
+        <div class="ecard-icon">🌐</div>
+        <p class="ecard-num">06</p>
+        <p class="ecard-title">Porta de Entrada</p>
+        <p class="ecard-body">Landing page dedicada para converter visitantes em leads qualificados ou agendamentos diretos um vendedor disponível 24h por dia, 7 dias por semana.</p>
+      </div>
+
+      <div class="ecard wide">
+        <div class="ecard-icon">📊</div>
+        <p class="ecard-num">07</p>
+        <p class="ecard-title">Painel de Controle Gestão Operacional Completa</p>
+        <p class="ecard-body">Agendamento e postagem nos horários estratégicos + relatório mensal com dados reais de crescimento de autoridade e impacto nos agendamentos. Você foca em atender nós cuidamos do resto.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE VALOR PERCEBIDO GRÁFICO ===== -->
+<div class="slide glow-tr" id="s-pilares" style="flex-direction:column;align-items:flex-start">
+  <div class="ghost-num" style="font-size:420px;right:-20px">03</div>
+  <div class="content">
+
+    <div style="margin-bottom:48px">
+      <div class="pill">O diferencial</div>
+      <h2 style="font-size:54px;font-weight:900;line-height:1.05;margin-bottom:10px">Por que o método <span style="color:#e06020">funciona</span></h2>
+      <p style="font-size:16px;color:rgba(255,255,255,0.45);max-width:540px">Três pilares que separam presença digital de verdade de conteúdo que só ocupa espaço no feed</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;width:100%">
+
+      <!-- Card 1 -->
+      <div style="background:linear-gradient(160deg,rgba(80,30,5,0.5),rgba(12,8,3,0.95));border:1px solid rgba(220,90,10,0.25);border-radius:20px;padding:36px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(220,90,10,0.2),transparent 70%);pointer-events:none"></div>
+        <div style="width:48px;height:48px;background:linear-gradient(135deg,rgba(220,90,10,0.35),rgba(140,50,5,0.2));border:1px solid rgba(220,90,10,0.4);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:28px">🎯</div>
+        <p style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#e06020;margin-bottom:12px">Pilar 01</p>
+        <p style="font-size:22px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:16px">Contraste<br>Estratégico<br>de Valor</p>
+        <p style="font-size:14px;color:rgba(255,255,255,0.55);line-height:1.7">Antes de criar qualquer peça, mapeamos o padrão da sua concorrência e encontramos o ângulo exato onde sua expertise vira vantagem irresistível. Não é achismo — é método.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div style="background:linear-gradient(160deg,rgba(80,30,5,0.5),rgba(12,8,3,0.95));border:1px solid rgba(220,90,10,0.25);border-radius:20px;padding:36px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(220,90,10,0.2),transparent 70%);pointer-events:none"></div>
+        <div style="width:48px;height:48px;background:linear-gradient(135deg,rgba(220,90,10,0.35),rgba(140,50,5,0.2));border:1px solid rgba(220,90,10,0.4);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:28px">🧠</div>
+        <p style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#e06020;margin-bottom:12px">Pilar 02</p>
+        <p style="font-size:22px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:16px">Neurodesign<br>e Copywriting<br>de Conversão</p>
+        <p style="font-size:14px;color:rgba(255,255,255,0.55);line-height:1.7">Cada post é construído para interromper a rolagem, gerar identificação e conduzir o visitante até o agendamento. Visual e texto trabalhando juntos com função específica no funil.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div style="background:linear-gradient(160deg,rgba(80,30,5,0.5),rgba(12,8,3,0.95));border:1px solid rgba(220,90,10,0.25);border-radius:20px;padding:36px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(220,90,10,0.2),transparent 70%);pointer-events:none"></div>
+        <div style="width:48px;height:48px;background:linear-gradient(135deg,rgba(220,90,10,0.35),rgba(140,50,5,0.2));border:1px solid rgba(220,90,10,0.4);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:28px">📊</div>
+        <p style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#e06020;margin-bottom:12px">Pilar 03</p>
+        <p style="font-size:22px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:16px">Gestão,<br>Dados e<br>Evolução</p>
+        <p style="font-size:14px;color:rgba(255,255,255,0.55);line-height:1.7">Nada é publicado no achismo. Todo conteúdo segue calendário estratégico e no fim do mês você recebe dados reais: o que cresceu, o que converteu e o que ajustamos para o próximo ciclo.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 4 BÔNUS ===== -->
+<div class="slide glow-tr glow-bl" id="s4">
+  <div class="ghost-num">04</div>
+  <div class="content">
+    <div class="pill">Inclusos no serviço</div>
+    <h2 style="font-size:52px;font-weight:900;margin-bottom:8px">Bônus <span style="color:#e06020">Estratégicos</span></h2>
+    <p style="color:rgba(255,255,255,0.45);font-size:16px">Cada bônus foi criado para destruir uma objeção específica</p>
+
+    <div class="bonus-list">
+
+      <div class="bonus-row">
+        <span class="bonus-badge">Bônus 1</span>
+        <div>
+          <p class="bonus-name">Dossiê do Concorrente</p>
+          <p class="bonus-desc">Análise profunda dos 5 principais concorrentes do seu nicho. Documento estratégico com pontos cegos da concorrência e o seu ângulo de diferenciação exclusivo cada post posiciona você acima, não ao lado.</p>
+        </div>
+      </div>
+
+      <div class="bonus-row">
+        <span class="bonus-badge">Bônus 2</span>
+        <div>
+          <p class="bonus-name">Protocolo de Primeiros 30 Dias</p>
+          <p class="bonus-desc">Ações estratégicas semana a semana para gerar os primeiros sinais de autoridade e os primeiros contatos qualificados no Direct o mais rápido possível. Sem esperar 90 dias para ver resultado.</p>
+        </div>
+      </div>
+
+      <div class="bonus-row">
+        <span class="bonus-badge">Bônus 3</span>
+        <div>
+          <p class="bonus-name">Script do Especialista</p>
+          <p class="bonus-desc">Bio otimizada e roteiro de apresentação profissional para perfil, WhatsApp Business e todos os pontos de contato digital. Em 150 caracteres, sua bio já vende por você.</p>
+        </div>
+      </div>
+
+      <div class="bonus-row">
+        <span class="bonus-badge">Bônus 4</span>
+        <div>
+          <p class="bonus-name">Sessão de Calibração Mensal</p>
+          <p class="bonus-desc">Reunião estratégica de 30 minutos por mês para alinhar resultados e ajustar a direção. Não é fornecedor é parceiro estratégico.</p>
+        </div>
+      </div>
+
+      <div class="bonus-row">
+        <span class="bonus-badge">Bônus 5</span>
+        <div>
+          <p class="bonus-name">Escudo de Honorários</p>
+          <p class="bonus-desc">Guia prático de como usar conteúdo das redes para justificar honorários mais altos e eliminar a objeção de preço antes que o cliente sequer a verbalize. Quem tem autoridade digital não compete por preço compete por preferência.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 5 PILARES ESTRATÉGICOS ===== -->
+<div class="slide glow-center" id="s5">
+  <div class="ghost-num" style="font-size:300px;right:auto;left:-30px">05</div>
+  <div class="content">
+    <h2>Por que o <span>Método Presença Elite</span><br>funciona de verdade</h2>
+    <div class="feat-grid">
+
+      <div class="fcard">
+        <div class="fcard-bg"></div>
+        <div class="fcard-orb"></div>
+        <div class="fcard-content">
+          <div class="fcard-icon">🎯</div>
+          <p class="fcard-title">Diagnóstico antes<br>de criar</p>
+          <p class="fcard-body">Sem entender o seu ângulo de autoridade, qualquer post é só decoração. A estratégia vem primeiro.</p>
+        </div>
+      </div>
+
+      <div class="fcard">
+        <div class="fcard-bg"></div>
+        <div class="fcard-orb"></div>
+        <div class="fcard-content">
+          <div class="fcard-icon">🔥</div>
+          <p class="fcard-title">Conteúdo que<br>converte</p>
+          <p class="fcard-body">Não é conteúdo bonito. É conteúdo que trabalha por você cada peça tem uma função específica dentro do funil.</p>
+        </div>
+      </div>
+
+      <div class="fcard">
+        <div class="fcard-bg"></div>
+        <div class="fcard-orb"></div>
+        <div class="fcard-content">
+          <div class="fcard-icon">📈</div>
+          <p class="fcard-title">Gestão e relatório<br>real</p>
+          <p class="fcard-body">Métricas que importam não vaidade. Dados que mostram o impacto real nos seus agendamentos, todo mês.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ===== SLIDE 6 FECHAMENTO ===== -->
+<div class="slide" id="s6">
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(150,40,5,0.2) 0%,transparent 65%);pointer-events:none;z-index:0"></div>
+  <div class="content" style="display:flex;flex-direction:column;align-items:center;position:relative;z-index:1">
+    <div class="closing-title">
+      <div class="line1">PRESENÇA</div>
+      <div class="line2">ELITE</div>
+    </div>
+    <p class="closing-sub">Sua autoridade digital construída com estratégia, posicionamento e conteúdo que realmente <strong>converte</strong> do diagnóstico ao relatório mensal.</p>
+    <div class="pill" style="margin-bottom:0;font-size:15px;padding:14px 36px;color:#e06020">Pandora Studio · 2025</div>
+    <p style="margin-top:24px;font-size:22px;font-weight:700;letter-spacing:0.04em;color:#fff">📲 19 98218-5523</p>
+  </div>
+</div>
+
+</body>
+</html>
