@@ -181,16 +181,16 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hid
 }
 
 /* TWO-COL LAYOUT */
-.two-col{display:flex;gap:80px;align-items:center;width:100%}
+.two-col{display:flex;gap:40px;align-items:center;width:100%}
 
 /* ===== SLIDE IMPACTO ===== */
-.impact-top{display:flex;align-items:flex-start;gap:80px;margin-bottom:60px}
+.impact-top{display:flex;align-items:flex-start;gap:80px;margin-bottom:60px;justify-content:center}
 .impact-title-block{flex-shrink:0}
 .impact-title-block h2{font-size:52px;font-weight:900;line-height:1.1;text-transform:uppercase;letter-spacing:-1px}
 .impact-title-block h2 span{color:#e06020}
 .impact-desc{max-width:400px;padding-top:4px}
 .impact-desc p{font-size:17px;color:rgba(255,255,255,0.58);line-height:1.75}
-.impact-stats{display:flex;flex-direction:column;gap:8px}
+.impact-stats{display:flex;flex-direction:column;gap:8px;align-items:center}
 .istat{display:flex;align-items:center;gap:22px}
 .istat-icon{
   width:56px;height:56px;border-radius:50%;flex-shrink:0;
@@ -241,6 +241,15 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hid
 .resultado-title{font-size:28px;font-weight:900;text-transform:uppercase;letter-spacing:-0.5px;margin-bottom:10px}
 .resultado-title span{color:#fff}
 .resultado-text{font-size:17px;color:rgba(255,255,255,0.55);line-height:1.6}
+
+/* cards do desafio — desktop linha, mobile carrossel */
+.desafio-cards-wrap{display:flex;gap:16px;margin-top:32px;width:100%}
+.desafio-cards-wrap .dcard{flex:1;min-width:0;width:auto;min-height:200px}
+@media(max-width:600px){
+  .desafio-cards-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding-bottom:12px;margin-left:-24px;margin-right:-24px;padding-left:24px;width:calc(100% + 48px)}
+  .desafio-cards-wrap .dcard{flex:0 0 200px;scroll-snap-align:start}
+  .desafio-cards-wrap::-webkit-scrollbar{display:none}
+}
 
 /* ===== SLIDE VALOR PERCEBIDO ===== */
 .valor-slide{align-items:stretch;gap:0;padding:80px 100px}
@@ -382,7 +391,7 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hid
 </div>
 
 <!-- ===== SLIDE 2.5 IMPACTO / NÚMEROS ===== -->
-<div class="slide glow-tr" id="s-impacto" style="flex-direction:column;justify-content:space-between;align-items:flex-start">
+<div class="slide glow-tr" id="s-impacto" style="flex-direction:column;justify-content:center;align-items:center;text-align:center">
   <div class="ghost-num" style="font-size:500px;letter-spacing:-30px;right:-40px">07</div>
 
   <div class="content impact-top">
@@ -421,7 +430,7 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hid
 </div>
 
 <!-- ===== SLIDE DESAFIO O PROBLEMA QUE O MÉTODO RESOLVE ===== -->
-<div class="slide glow-tl" id="s-desafio" style="flex-direction:column;justify-content:flex-start;align-items:flex-start;overflow:hidden;padding-bottom:0">
+<div class="slide glow-tl" id="s-desafio" style="flex-direction:column;justify-content:center;align-items:flex-start;overflow:hidden;padding-bottom:40px">
   <div class="ghost-num" style="right:-30px;top:40%;font-size:480px">%</div>
   <div class="content">
 
@@ -434,35 +443,28 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hid
       <p>Para gerar agendamentos consistentes com qualidade, você precisa de uma estrutura que a maioria dos social medias avulsos não consegue entregar:</p>
     </div>
 
-  </div>
+    <!-- desktop: 4 cards em linha; mobile: carrossel -->
+    <div class="desafio-cards-wrap">
+      <div class="dcard" style="transform:none;margin:0;flex-shrink:0">
+        <div class="dcard-icon">🎯</div>
+        <p class="dcard-name">Estratégia de<br>Posicionamento</p>
+      </div>
+      <div class="dcard" style="transform:none;margin:0;flex-shrink:0">
+        <div class="dcard-icon">✍️</div>
+        <p class="dcard-name">Copy e<br>Neurodesign</p>
+      </div>
+      <div class="dcard" style="transform:none;margin:0;flex-shrink:0">
+        <div class="dcard-icon">📊</div>
+        <p class="dcard-name">Gestão e<br>Relatório Real</p>
+      </div>
+      <div class="dcard" style="transform:none;margin:0;flex-shrink:0;background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.08)">
+        <div class="resultado-icon">⚡</div>
+        <p class="resultado-title" style="font-size:18px">RESULTADO:</p>
+        <p class="resultado-text" style="font-size:13px">Sem método, o perfil vira decoração e você perde agendamentos.</p>
+      </div>
+    </div>
 
-  <!-- carrossel FORA do content, com padding próprio para vazar nas bordas -->
-  <div style="width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:0 100px 40px;display:flex;gap:16px;scroll-snap-type:x mandatory;box-sizing:border-box">
-    <style>
-      @media(max-width:600px){
-        #s-desafio .carousel-wrap{padding:0 24px 32px!important}
-      }
-    </style>
-    <div class="dcard" style="scroll-snap-align:start;flex-shrink:0;width:200px;min-height:220px;transform:none;margin:0">
-      <div class="dcard-icon">🎯</div>
-      <p class="dcard-name">Estratégia de<br>Posicionamento</p>
-    </div>
-    <div class="dcard" style="scroll-snap-align:start;flex-shrink:0;width:200px;min-height:220px;transform:none;margin:0">
-      <div class="dcard-icon">✍️</div>
-      <p class="dcard-name">Copy e<br>Neurodesign</p>
-    </div>
-    <div class="dcard" style="scroll-snap-align:start;flex-shrink:0;width:200px;min-height:220px;transform:none;margin:0">
-      <div class="dcard-icon">📊</div>
-      <p class="dcard-name">Gestão e<br>Relatório Real</p>
-    </div>
-    <!-- resultado como card também -->
-    <div style="scroll-snap-align:start;flex-shrink:0;width:200px;min-height:220px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:20px;display:flex;flex-direction:column;justify-content:flex-end">
-      <div class="resultado-icon">⚡</div>
-      <p class="resultado-title" style="font-size:20px">RESULTADO:</p>
-      <p class="resultado-text" style="font-size:13px">Sem método, o perfil vira decoração e você perde agendamentos.</p>
-    </div>
   </div>
-
 </div>
 
 <!-- ===== SLIDE 3 ENTREGÁVEIS ===== -->
