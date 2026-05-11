@@ -14,6 +14,7 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hid
   display:flex;align-items:center;justify-content:center;
   padding:80px 100px;overflow:hidden;
 }
+.content{position:relative;z-index:1;width:100%;max-width:1000px;margin:0 auto}
 
 /* GLOW CORNERS */
 .glow-tl::before{content:'';position:absolute;top:-200px;left:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(220,90,10,0.35) 0%,transparent 65%);pointer-events:none;z-index:0}
@@ -41,7 +42,6 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hid
 }
 
 /* CONTENT LAYER */
-.content{position:relative;z-index:1;width:100%}
 
 /* DIVIDER */
 .divider{height:1px;background:rgba(255,255,255,0.08);margin:20px 0}
