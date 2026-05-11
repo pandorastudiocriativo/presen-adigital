@@ -94,8 +94,8 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hid
 .mec-card-text em{color:#fff;font-style:normal;font-weight:600}
 
 /* ===== SLIDE 3 ENTREGÁVEIS ===== */
-#s3{background:#0a0a0a;flex-direction:column;align-items:flex-start}
-.section-head{margin-bottom:48px}
+#s3{background:#0a0a0a;flex-direction:column;align-items:center}
+.section-head{margin-bottom:48px;text-align:center}
 .section-head h2{font-size:52px;font-weight:900;line-height:1.05}
 .section-head h2 span{color:#e06020}
 .section-head p{font-size:16px;color:rgba(255,255,255,0.5);margin-top:10px}
@@ -114,7 +114,7 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hid
 .ecard-icon{width:36px;height:36px;background:linear-gradient(135deg,rgba(220,90,10,0.3),rgba(140,50,5,0.2));border:1px solid rgba(220,90,10,0.3);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:16px}
 
 /* ===== SLIDE 4 BÔNUS ===== */
-#s4{background:#0c0c0c;flex-direction:column;align-items:flex-start}
+#s4{background:#0c0c0c;flex-direction:column;align-items:center}
 .bonus-list{display:flex;flex-direction:column;gap:12px;width:100%;margin-top:40px}
 .bonus-row{
   display:flex;gap:20px;align-items:flex-start;
@@ -204,10 +204,10 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hid
 .istat-label span{font-size:14px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:rgba(255,255,255,0.5);line-height:1.25;display:block}
 
 /* ===== SLIDE DESAFIO cards inclinados ===== */
-.desafio-title{font-size:80px;font-weight:900;line-height:0.95;text-transform:uppercase;letter-spacing:-2px;margin-bottom:6px}
+.desafio-title{font-size:80px;font-weight:900;line-height:0.95;text-transform:uppercase;letter-spacing:-2px;margin-bottom:6px;text-align:center}
 .desafio-title span{color:#e05500}
-.desafio-sub{font-size:28px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#fff;margin-bottom:28px}
-.desafio-body{font-size:16px;color:rgba(255,255,255,0.6);line-height:1.7;max-width:580px;margin-bottom:48px}
+.desafio-sub{font-size:28px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#fff;margin-bottom:28px;text-align:center}
+.desafio-body{font-size:16px;color:rgba(255,255,255,0.6);line-height:1.7;max-width:580px;margin-bottom:48px;text-align:center;margin-left:auto;margin-right:auto}
 .desafio-body strong{color:#fff;font-weight:700}
 .desafio-bottom{display:flex;align-items:flex-start;gap:60px;width:100%;flex-wrap:wrap}
 .dcard-stack{display:flex;gap:12px;align-items:stretch;overflow-x:auto;padding-bottom:12px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;width:100%}
@@ -430,7 +430,7 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hid
 </div>
 
 <!-- ===== SLIDE DESAFIO O PROBLEMA QUE O MÉTODO RESOLVE ===== -->
-<div class="slide glow-tl" id="s-desafio" style="flex-direction:column;justify-content:center;align-items:flex-start;overflow:hidden;padding-bottom:40px">
+<div class="slide glow-tl" id="s-desafio" style="flex-direction:column;justify-content:center;align-items:center;overflow:hidden;padding-bottom:40px">
   <div class="ghost-num" style="right:-30px;top:40%;font-size:480px">%</div>
   <div class="content">
 
@@ -531,14 +531,14 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hid
 </div>
 
 <!-- ===== SLIDE VALOR PERCEBIDO GRÁFICO ===== -->
-<div class="slide glow-tr" id="s-pilares" style="flex-direction:column;align-items:flex-start">
+<div class="slide glow-tr" id="s-pilares" style="flex-direction:column;align-items:center">
   <div class="ghost-num" style="font-size:420px;right:-20px">03</div>
   <div class="content">
 
-    <div style="margin-bottom:48px">
+    <div style="margin-bottom:48px;text-align:center">
       <div class="pill">O diferencial</div>
       <h2 style="font-size:54px;font-weight:900;line-height:1.05;margin-bottom:10px">Por que o método <span style="color:#e06020">funciona</span></h2>
-      <p style="font-size:16px;color:rgba(255,255,255,0.45);max-width:540px">Três pilares que separam presença digital de verdade de conteúdo que só ocupa espaço no feed</p>
+      <p style="font-size:16px;color:rgba(255,255,255,0.45);max-width:540px;margin:0 auto">Três pilares que separam presença digital de verdade de conteúdo que só ocupa espaço no feed</p>
     </div>
 
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;width:100%" class="pilares-grid">
@@ -578,9 +578,11 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hid
 <div class="slide glow-tr glow-bl" id="s4">
   <div class="ghost-num">04</div>
   <div class="content">
+    <div style="text-align:center">
     <div class="pill">Inclusos no serviço</div>
-    <h2 style="font-size:52px;font-weight:900;margin-bottom:8px">Bônus <span style="color:#e06020">Estratégicos</span></h2>
-    <p style="color:rgba(255,255,255,0.45);font-size:16px">Cada bônus foi criado para destruir uma objeção específica</p>
+    <h2 style="font-size:52px;font-weight:900;margin-bottom:8px;text-align:center">Bônus <span style="color:#e06020">Estratégicos</span></h2>
+    <p style="color:rgba(255,255,255,0.45);font-size:16px;text-align:center;margin-bottom:32px">Cada bônus foi criado para destruir uma objeção específica</p>
+    </div>
 
     <div class="bonus-list">
 
