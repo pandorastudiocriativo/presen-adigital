@@ -209,10 +209,13 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hid
 .desafio-sub{font-size:28px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#fff;margin-bottom:28px}
 .desafio-body{font-size:16px;color:rgba(255,255,255,0.6);line-height:1.7;max-width:580px;margin-bottom:48px}
 .desafio-body strong{color:#fff;font-weight:700}
-.desafio-bottom{display:flex;align-items:flex-end;gap:60px;width:100%}
-.dcard-stack{display:flex;gap:-10px;align-items:flex-end;position:relative}
+.desafio-bottom{display:flex;align-items:flex-start;gap:60px;width:100%;flex-wrap:wrap}
+.dcard-stack{display:flex;gap:12px;align-items:stretch;overflow-x:auto;padding-bottom:12px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;width:100%}
+.dcard-stack::-webkit-scrollbar{display:none}
 .dcard{
   width:175px;min-height:200px;
+  flex-shrink:0;
+  scroll-snap-align:start;
   background:linear-gradient(160deg,rgba(90,35,5,0.85),rgba(25,10,2,0.95));
   border:1px solid rgba(220,90,10,0.35);
   border-radius:18px;
@@ -222,9 +225,9 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hid
   box-shadow:0 8px 40px rgba(180,60,0,0.25);
 }
 .dcard::before{content:'';position:absolute;inset:0;border-radius:18px;background:radial-gradient(ellipse at 50% 110%,rgba(220,90,10,0.3) 0%,transparent 60%);pointer-events:none}
-.dcard:nth-child(1){transform:rotate(-4deg) translateY(8px);z-index:1}
-.dcard:nth-child(2){transform:rotate(-1.5deg) translateY(0px);z-index:2;margin-left:-18px}
-.dcard:nth-child(3){transform:rotate(2deg) translateY(4px);z-index:3;margin-left:-18px}
+.dcard:nth-child(1){transform:none;z-index:1;margin-left:0}
+.dcard:nth-child(2){transform:none;z-index:2;margin-left:0}
+.dcard:nth-child(3){transform:none;z-index:3;margin-left:0}
 .dcard-icon{
   width:34px;height:34px;
   background:linear-gradient(135deg,rgba(220,90,10,0.4),rgba(140,50,5,0.3));
@@ -415,7 +418,7 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hid
 </div>
 
 <!-- ===== SLIDE DESAFIO O PROBLEMA QUE O MÉTODO RESOLVE ===== -->
-<div class="slide glow-tl" id="s-desafio" style="flex-direction:column;justify-content:flex-start;align-items:flex-start">
+<div class="slide glow-tl" id="s-desafio" style="flex-direction:column;justify-content:flex-start;align-items:flex-start;overflow:visible">
   <div class="ghost-num" style="right:-30px;top:40%;font-size:480px">%</div>
   <div class="content">
 
@@ -636,7 +639,7 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hid
         <div style="width:52px;height:52px;flex-shrink:0;background:linear-gradient(135deg,rgba(220,90,10,0.35),rgba(140,50,5,0.2));border:1px solid rgba(220,90,10,0.4);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px">🔥</div>
         <div>
           <p style="font-size:17px;font-weight:800;color:#fff;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.02em">Conteúdo que converte</p>
-          <p style="font-size:14px;color:rgba(255,255,255,0.55);line-height:1.6">Não é conteúdo bonito. É conteúdo que trabalha por você — cada peça tem função específica dentro do funil.</p>
+          <p style="font-size:14px;color:rgba(255,255,255,0.55);line-height:1.6">Não é conteúdo bonito. É conteúdo que trabalha por você, cada peça tem função específica dentro do funil.</p>
         </div>
       </div>
 
