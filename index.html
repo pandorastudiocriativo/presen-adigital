@@ -313,6 +313,9 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hid
   .dcard:nth-child(2){transform:none;margin-left:10px}
   .dcard:nth-child(3){transform:none;margin-left:10px}
 
+  /* DESAFIO carrossel */
+  #s-desafio > div[style*="overflow-x"]{padding:0 24px 32px!important}
+
   /* ENTREGÁVEIS */
   .section-head h2{font-size:34px}
   .cards-grid{grid-template-columns:1fr!important}
@@ -418,7 +421,7 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hid
 </div>
 
 <!-- ===== SLIDE DESAFIO O PROBLEMA QUE O MÉTODO RESOLVE ===== -->
-<div class="slide glow-tl" id="s-desafio" style="flex-direction:column;justify-content:flex-start;align-items:flex-start;overflow:visible">
+<div class="slide glow-tl" id="s-desafio" style="flex-direction:column;justify-content:flex-start;align-items:flex-start;overflow:hidden;padding-bottom:0">
   <div class="ghost-num" style="right:-30px;top:40%;font-size:480px">%</div>
   <div class="content">
 
@@ -431,31 +434,35 @@ body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hid
       <p>Para gerar agendamentos consistentes com qualidade, você precisa de uma estrutura que a maioria dos social medias avulsos não consegue entregar:</p>
     </div>
 
-    <div class="desafio-bottom">
+  </div>
 
-      <div class="dcard-stack">
-        <div class="dcard">
-          <div class="dcard-icon">🎯</div>
-          <p class="dcard-name">Estratégia de<br>Posicionamento</p>
-        </div>
-        <div class="dcard">
-          <div class="dcard-icon">✍️</div>
-          <p class="dcard-name">Copy e<br>Neurodesign</p>
-        </div>
-        <div class="dcard">
-          <div class="dcard-icon">📊</div>
-          <p class="dcard-name">Gestão e<br>Relatório Real</p>
-        </div>
-      </div>
-
-      <div class="resultado-block">
-        <div class="resultado-icon">⚡</div>
-        <p class="resultado-title">RESUL<span>TADO:</span></p>
-        <p class="resultado-text">Sem método, o perfil vira decoração e você continua perdendo agendamentos para quem tem autoridade digital.</p>
-      </div>
-
+  <!-- carrossel FORA do content, com padding próprio para vazar nas bordas -->
+  <div style="width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:0 100px 40px;display:flex;gap:16px;scroll-snap-type:x mandatory;box-sizing:border-box">
+    <style>
+      @media(max-width:600px){
+        #s-desafio .carousel-wrap{padding:0 24px 32px!important}
+      }
+    </style>
+    <div class="dcard" style="scroll-snap-align:start;flex-shrink:0;width:200px;min-height:220px;transform:none;margin:0">
+      <div class="dcard-icon">🎯</div>
+      <p class="dcard-name">Estratégia de<br>Posicionamento</p>
+    </div>
+    <div class="dcard" style="scroll-snap-align:start;flex-shrink:0;width:200px;min-height:220px;transform:none;margin:0">
+      <div class="dcard-icon">✍️</div>
+      <p class="dcard-name">Copy e<br>Neurodesign</p>
+    </div>
+    <div class="dcard" style="scroll-snap-align:start;flex-shrink:0;width:200px;min-height:220px;transform:none;margin:0">
+      <div class="dcard-icon">📊</div>
+      <p class="dcard-name">Gestão e<br>Relatório Real</p>
+    </div>
+    <!-- resultado como card também -->
+    <div style="scroll-snap-align:start;flex-shrink:0;width:200px;min-height:220px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:20px;display:flex;flex-direction:column;justify-content:flex-end">
+      <div class="resultado-icon">⚡</div>
+      <p class="resultado-title" style="font-size:20px">RESULTADO:</p>
+      <p class="resultado-text" style="font-size:13px">Sem método, o perfil vira decoração e você perde agendamentos.</p>
     </div>
   </div>
+
 </div>
 
 <!-- ===== SLIDE 3 ENTREGÁVEIS ===== -->
